@@ -1,0 +1,21 @@
+@import '../../../assets/styles/mixins';
+
+.button {
+  transition: all 0.3s ease;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  @include border-radius(rem(20));
+  font-size: rem(16);
+  color: #fff;
+  padding: 0 rem(25);
+  box-sizing: border-box;
+  height: rem(45);
+
+  &:hover {
+    @include translate(0, -2px);
+    @include box-shadow(rem(0) rem(0) rem(15) rgba(255, 0, 0, 0.5));
+  }
+}

@@ -1,0 +1,27 @@
+@import '../../assets/styles/mixins.scss';
+
+
+.movie_list {
+  .movie_list__container {
+    padding: 0 rem(40);
+    @media (max-width: em(768)) {
+      padding: 0 rem(20);
+    }
+  }
+
+  .movie_list__content {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(rem(130), rem(290)));
+    @include adaptiv-value(gap, 15, 13, 1);
+    justify-content: center;
+    @media (max-width: em(992)) {
+      grid-template-columns: repeat(4, minmax(rem(130), rem(230)));
+    }
+    @media (max-width: em(768)) {
+      grid-template-columns: repeat(3, minmax(rem(130), 33%));
+    }
+    @media (max-width: em(576)) {
+      grid-template-columns: repeat(2, minmax(rem(130), 50%));
+    }
+  }
+}

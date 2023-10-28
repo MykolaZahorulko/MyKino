@@ -1,0 +1,57 @@
+@import '../../assets/styles/mixins.scss';
+
+.movie_item {
+  overflow: hidden;
+  aspect-ratio: 130 / 220;
+  position: relative;
+  box-sizing: border-box;
+  transition: all .25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 rem(15) rem(15);
+
+  &__img {
+    min-width: 100%;
+    flex: 1 1 82%;
+  }
+
+  &__info {
+    cursor: auto;
+    box-sizing: border-box;
+    background-color: #252627;
+    width: 100%;
+    flex: 1 1 17%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: rem(5);
+    padding: rem(10) rem(15);
+    @media (max-width: em(570)) {
+      padding: rem(5) rem(10);
+    }
+
+
+    &_title {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      @include text-overflow(ellipsis);
+      cursor: pointer;
+      color: #fff;
+      font-weight: 600;
+      text-align: center;
+      @include adaptiv-value('font-size', 16, 12, 1);
+    }
+
+    &_year {
+      font-size: rem(14);
+      text-align: center;
+      display: block;
+      @include adaptiv-value('font-size', 14, 12, 1);
+    }
+  }
+}
+

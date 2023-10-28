@@ -1,0 +1,86 @@
+@import '../../assets/styles/mixins.scss';
+
+.movie_item__to_favourite_btn {
+  opacity: 0;
+  transition: all .25s ease;
+  cursor: pointer;
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  right: 5%;
+  visibility: hidden;
+  @include translate(0, -100%);
+  background-color: rgba(255, 0, 0, 0.5);
+  width: rem(40);
+  height: rem(50);
+  border-radius: 0 0 rem(10) rem(10);
+
+  svg {
+    @include translate(30%, 20%);
+    max-width: rem(25);
+    max-height: rem(35);
+    color: #fff;
+  }
+
+  &:hover {
+    background-color: red;
+  }
+}
+
+.movie_item__play_btn {
+  visibility: hidden;
+  z-index: 3;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include translate(-50%, -40%);
+  width: rem(60);
+  height: rem(60);
+  border-radius: 50%;
+  border: 2px solid #fff;
+  transition: all .25s ease;
+  cursor: pointer;
+
+  svg {
+    @include translate(90%, 65%);
+    color: #fff;
+    max-width: rem(20);
+    max-height: rem(24);
+  }
+
+  &:hover {
+    background-color: red;
+    border: 2px solid red;
+  }
+
+}
+
+.movie_item__img {
+  background-color: red;
+
+  img {
+    @include objf(fill);
+    @include objp(top);
+  }
+
+  &:hover {
+    @media (min-width: em(769)) {
+      transition: all .25s ease;
+      img {
+        transition: all .25s ease;
+        opacity: 0.7;
+      }
+      .movie_item__play_btn {
+        visibility: visible;
+        opacity: 1;
+        @include translate(-50%, -50%);
+      }
+      .movie_item__to_favourite_btn {
+        visibility: visible;
+        opacity: 1;
+        @include translate(0, 0);
+      }
+    }
+  }
+}

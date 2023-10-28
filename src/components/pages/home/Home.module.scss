@@ -1,0 +1,9 @@
+@import '../../../assets/styles/mixins';
+
+.main__content {
+  padding-bottom: rem(80);
+
+  @media (max-width: em(768)) {
+    padding-bottom: rem(60);
+  }
+}

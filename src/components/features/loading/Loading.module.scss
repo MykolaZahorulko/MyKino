@@ -1,0 +1,33 @@
+@import '../../../assets/styles/mixins.scss';
+
+.loading_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  width: 100%;
+  margin: 0 auto;
+  order: 3;
+}
+
+.loading_spinner {
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  border-radius: 50%;
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+
+  @keyframes pulse {
+    0% {
+      transform: scale(0.8);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(0.8);
+    }
+  }
+}

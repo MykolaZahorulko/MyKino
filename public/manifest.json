@@ -1,0 +1,15 @@
+{
+  "name": "My trailer movie watcher",
+  "short_name": "MyKino",
+  "description": "Web site where you can watch movie trailer or read description",
+  "display": "standalone",
+  "background_color": "#1d1e1f",
+  "theme_color": "red",
+  "orientation": "any",
+  "scope": "/",
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "categories": [
+    "utilities"
+  ]
+}

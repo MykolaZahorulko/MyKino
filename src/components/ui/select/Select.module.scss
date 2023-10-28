@@ -1,0 +1,95 @@
+@import '../../../assets/styles/mixins.scss';
+
+.customSelect {
+  z-index: 5;
+  position: relative;
+  @include transition(all, .3s, ease, 0s);
+  font-family: $ff;
+  @include adaptiv-value(font-size, 18, 14, 1);
+  width: 100%;
+  max-width: rem(268);
+  @media (max-width: em(520)) {
+    max-width: none;
+  }
+}
+
+.customSelectHeader {
+  font-weight: 600;
+  border-radius: rem(50);
+  padding: rem(15) rem(30);
+  background-color: #252627;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: em(425)) {
+    padding: rem(13) rem(27);
+  }
+
+  &_str {
+    @include transition(all, .3s, ease, 0s);
+    color: #fff;
+    width: rem(30);
+    height: rem(30);
+
+    &._active {
+      @include rotate(180deg);
+    }
+
+    @media (max-width: em(425)) {
+      width: rem(27);
+      height: rem(27);
+    }
+  }
+}
+
+.customSelectOptions {
+  z-index: 5;
+  border-radius: rem(10);
+  position: absolute;
+  top: rem(70);
+  left: 0;
+  height: 0;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 100%;
+  background-color: #252627;
+  @include transition(all, .3s, ease, 0s);
+}
+
+.customSelectOption {
+  z-index: 5;
+  @include transition(all, .3s, ease, 0s);
+  padding: rem(20) rem(30);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  background-color: #252627;
+
+  &:first-child {
+    border-radius: rem(10) rem(10) 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 0 rem(10) rem(10);
+  }
+}
+
+.customSelectOption:hover {
+  @include transition(all, .3s, ease, 0s);
+  background-color: #f00;
+}
+
+.customSelect.open .customSelectOptions {
+  @include transition(all, .3s, ease, 0s);
+  height: 100%;
+  overflow: inherit;
+}
+
+.customSelect.selected .customSelectHeader {
+  background-color: #ff0000;
+  @include transition(all, .3s, ease, 0s);
+}

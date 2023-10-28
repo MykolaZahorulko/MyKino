@@ -1,0 +1,15 @@
+@import '../../../assets/styles/mixins';
+
+.favorites {
+  padding: rem(80) rem(0);
+  @media (max-width: em(768)) {
+    padding: rem(60) rem(0);
+  }
+}
+
+.error_text {
+  @include adaptiv-value(font-size, 42, 24, 1);
+  text-align: center;
+  @include adaptiv-value(margin-bottom, 70, 30, 1);
+  color: #902f2f;
+}

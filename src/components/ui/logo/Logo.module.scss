@@ -1,0 +1,10 @@
+@import '../../../assets/styles/mixins';
+
+.icon__logo {
+  width: rem(100);
+  height: rem(25);
+  @media (max-width: em(425)) {
+    width: rem(80);
+    height: rem(20);
+  }
+}

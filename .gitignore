@@ -1,0 +1,33 @@
+# macOS system files
+.DS_Store
+
+# Node.js dependencies
+node_modules/
+.cache/
+.yarn/
+
+# Log files
+*.log
+*.log.*
+
+# Test files
+*.test.tsx
+*.test.ts
+*.test.js
+
+# Environment variables
+.env
+
+# IDE-specific directories
+.vscode/
+.idea/
+
+# Local editor and project files
+*.swp
+*~
+
+# Files created by the `yarn pack` command
+package.tgz
+
+# Files created during project deployment on Vercel
+.vercel/

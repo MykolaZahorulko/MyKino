@@ -1,0 +1,49 @@
+/* --- FONTS --- */
+@font-face {
+  font-family: "Avenir Next Cyr";
+  src: url("../fonts/AvenirNextCyr-Light.ttf") format("ttf"), url("../fonts/AvenirNextCyr-Light.eot") format("eot");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir Next Cyr";
+  src: url("../fonts/AvenirNextCyr-Regular.ttf") format("ttf"), url("../fonts/AvenirNextCyr-Regular.eot") format("eot");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir Next Cyr";
+  src: url("../fonts/AvenirNextCyr-Bold.ttf") format("ttf"), url("../fonts/AvenirNextCyr-Bold.eot") format("eot");
+  font-weight: 700;
+  font-style: normal;
+}
+/* --- Here we are write enter layout width {ALL} without PX --- */
+/* --- Here we are enter container width without PX --- */
+/* --- Here we are enter general font size value on the website without PX ---   */
+.container {
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+.img {
+  position: relative;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.img img, .img svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-object-fit: cover;
+  -moz-object-fit: cover;
+  -o-object-fit: cover;
+  object-position: center;
+  -webkit-object-position: center;
+  -moz-object-position: center;
+  -o-object-position: center;
+}
+
+/*# sourceMappingURL=Home.module.css.map */

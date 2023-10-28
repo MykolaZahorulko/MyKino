@@ -1,0 +1,403 @@
+@import '../../../assets/styles/mixins.scss';
+
+.header {
+  white-space: nowrap;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+
+  &__body {
+    z-index: 9;
+    background-color: #252627;
+  }
+
+  &__content {
+    max-height: rem(90);
+    z-index: 10;
+    padding: rem(20) rem(40);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media (max-width: em(768)) {
+      padding: rem(14) rem(20);
+    }
+
+    &_left {
+      z-index: 10;
+
+      display: flex;
+      align-items: center;
+      gap: rem(10);
+      @media (max-width: em(768)) {
+        flex: 1 1 auto;
+      }
+
+      &_logo {
+        margin-right: rem(10);
+      }
+
+      .header__content_left_button {
+        @media (max-width: em(425)) {
+          height: rem(35);
+          padding: 0 rem(10) 0 rem(15);
+        }
+
+        &_telegram_icon {
+          min-height: rem(18);
+          min-width: rem(18);
+          display: inline-block;
+          margin-right: rem(10);
+          @media (max-width: em(425)) {
+            height: rem(14);
+            width: rem(14);
+          }
+        }
+
+        &_text {
+          @media (max-width: em(1024)) {
+            display: none;
+          }
+        }
+
+      }
+    }
+
+    &_center {
+      z-index: 10;
+      margin-right: rem(5);
+
+      .center__content {
+        @include flexbox();
+        align-items: center;
+        gap: rem(30);
+        padding: rem(0) rem(20);
+        @media (max-width: em(1200)) {
+          gap: rem(25);
+        }
+        @media (max-width: em(768)) {
+          display: none;
+        }
+
+        &_item {
+          @include flexbox();
+          align-items: center;
+          gap: rem(12);
+
+
+          &:hover {
+            .center__content_text {
+              color: #fff;
+
+              &:after {
+                width: 35%;
+              }
+            }
+          }
+        }
+
+        &_icon {
+          height: rem(24);
+          width: rem(24);
+          color: #fff;
+          display: inline-block;
+        }
+
+        &_text {
+          transition: all 0.3s ease;
+          color: #ccc;
+          font-weight: 700;
+          font-size: rem(18);
+          position: relative;
+
+          &:after {
+            transition: all 0.3s ease;
+            position: absolute;
+            bottom: rem(-5);
+            left: 0;
+            content: '';
+            @include border-radius(rem(1));
+            height: rem(3.5);
+            background-color: red;
+            width: 0;
+          }
+
+          @media (max-width: em(1200)) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &_right {
+      z-index: 10;
+      flex: 0 1 rem(500);
+      margin-right: rem(20);
+      background-color: #333335;
+      border-radius: 24px;
+      padding: 0 24px;
+      @media (max-width: em(768)) {
+        display: none;
+      }
+    }
+
+    &_login {
+      z-index: 10;
+      @media (max-width: em(768)) {
+        display: none;
+      }
+
+      .login__content {
+        cursor: pointer;
+        @include flexbox();
+        align-items: center;
+        gap: rem(10);
+
+        &:hover {
+          .login__content_text {
+            color: #fff;
+          }
+        }
+
+        &_icon {
+          color: #fff;
+          height: rem(24);
+          width: rem(24);
+        }
+
+        &_text {
+          transition: color 0.3s ease;
+          font-weight: 700;
+          font-size: rem(16);
+          color: #ccc;
+        }
+      }
+    }
+
+    &_burger {
+      display: none;
+      visibility: hidden;
+      opacity: 0;
+      @media (max-width: em(768)) {
+        display: block;
+        visibility: visible;
+        opacity: 1;
+        cursor: pointer;
+        min-width: rem(30);
+        min-height: rem(18);
+        z-index: 10;
+        position: relative;
+        &::before, &::after, span {
+          position: absolute;
+          left: 0;
+          min-height: rem(2);
+          width: 100%;
+          @include transition(all, 0.3s, ease, 0s);
+          background-color: #fff;
+        }
+        &::before, &::after {
+          content: "";
+        }
+        &::before {
+          top: 0;
+        }
+        &::after {
+          bottom: 0;
+        }
+        span {
+          top: 50%;
+          @include translate(0, -50%);
+        }
+        &._active {
+          &::before {
+            top: 50%;
+            transform: translate(0, -50%) rotate(-45deg);
+          }
+
+          &::after {
+            top: 50%;
+            height: rem(2);
+            transform: translate(0, -50%) rotate(45deg);
+          }
+
+          span {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+
+  &__mobile {
+    z-index: 20;
+    background-color: rgba(29, 30, 31, .9);
+    @include blur(rem(10));
+    width: 100%;
+    height: 0;
+    @include transition(all, 0.3s, ease, 0s);
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+
+    &._active {
+      animation: slide-down .3s ease;
+      @include transition(opacity, 0.3s, ease, 0s);
+      opacity: 1;
+      height: 100vh;
+      visibility: visible;
+      display: block;
+    }
+
+    &_content {
+      padding: rem(40) rem(20) rem(0) rem(20);
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      @include adaptiv-value(gap, 90, 40, 1);
+
+      &__item {
+        padding: rem(40) rem(30);
+        background-color: #252627;
+        @include border-radius(rem(10));
+        display: flex;
+        gap: rem(14);
+        align-items: center;
+        @media (max-width: em(425)) {
+          padding: rem(35) rem(25);
+          gap: rem(10);
+        }
+
+        &:last-child {
+          margin-bottom: rem(200);
+          @media (max-width: em(425)) {
+            margin-bottom: rem(150);
+          }
+        }
+      }
+
+      &_icon {
+        color: #fff;
+        width: rem(30);
+        height: rem(30);
+        @media (max-width: em(425)) {
+          height: rem(27);
+          width: rem(27);
+        }
+      }
+
+      &_text {
+        color: #fff;
+        font-size: rem(24);
+        font-weight: 700;
+        @media (max-width: em(425)) {
+          font-size: rem(20);
+        }
+      }
+    }
+  }
+}
+
+.search_list {
+  position: relative;
+  visibility: hidden;
+  display: none;
+  padding: rem(40) 0 rem(160) 0;
+  background-color: rgba(37, 38, 39, .6);
+  @include blur(rem(10));
+}
+
+.search_active {
+  animation: slide-down .3s ease;
+  @include transition(opacity, 0.3s, ease, 0s);
+  opacity: 1;
+  height: 100vh;
+  visibility: visible;
+  display: block;
+  overflow: auto;
+}
+
+
+.searching_mobile {
+  @media (min-width: em(768)) {
+    display: none;
+  }
+  display: none;
+  width: 100%;
+  border-radius: 0;
+  background-color: #252627;
+  border-top: 1px solid rgba(255, 255, 255, .05);
+  padding: rem(10) rem(12);
+  border-bottom: 1px solid rgba(255, 255, 255, .05);
+
+  &_bar {
+    border-radius: rem(20);
+    padding: 0 rem(20);
+  }
+}
+
+.searching_mobile_active {
+  display: block;
+}
+
+.mobile_searching_opener {
+  animation: slide-down .3s ease;
+  @media (min-width: em(768)) {
+    display: none;
+  }
+  width: 100%;
+  max-width: rem(200);
+  @media (max-width: em(390)) {
+    max-width: rem(100);
+  }
+
+
+  &_content {
+    background-color: #333335;
+    border-radius: rem(20);
+    padding: rem(11) rem(20);
+    margin-left: rem(5);
+    margin-right: rem(10);
+    @media (max-width: em(425)) {
+      padding: rem(7) rem(18);
+    }
+  }
+
+  &_body {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    @media (max-width: em(390)) {
+      justify-content: center;
+    }
+  }
+
+  &_icon {
+    color: #fff;
+    margin-right: rem(10);
+    min-width: rem(23);
+    min-height: rem(23);
+  }
+
+  &_text {
+    color: #fff;
+    font-size: rem(16);
+    font-weight: 700;
+    text-overflow: ellipsis;
+    @media (max-width: em(390)) {
+      display: none;
+    }
+  }
+}
+
+
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}

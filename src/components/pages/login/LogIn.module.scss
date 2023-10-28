@@ -1,0 +1,161 @@
+@import '../../../assets/styles/mixins';
+
+.login {
+  padding: rem(80) rem(40);
+  @media (max-width: em(768)) {
+    padding: rem(60) rem(20);
+  }
+
+  &__content {
+    @include flexbox();
+    flex-direction: column;
+
+    &_signedin {
+      @include flexbox();
+      flex-direction: column;
+      gap: rem(40);
+      @media (max-width: em(768)) {
+        gap: rem(30);
+      }
+      @media (max-width: em(460)) {
+        gap: rem(25);
+      }
+
+      &_title {
+        @include adaptiv-value(font-size, 90, 48, 1);
+        @include adaptiv-value(margin-bottom, 40, 20, 1);
+        font-family: $ff;
+        font-weight: 700;
+        color: #fff;
+        line-height: 0.7;
+      }
+
+      &_welcome {
+        @include adaptiv-value(font-size, 46, 22, 1);
+        font-family: $ff;
+        font-weight: 700;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        @include adaptiv-value(gap, 35, 20, 1);
+        @include adaptiv-value(margin-bottom, 50, 20, 1);
+
+        a {
+          color: #ccc;
+          @include adaptiv-value(font-size, 36, 18, 1);
+          position: relative;
+          transition: all 0.3s ease;
+
+          span {
+            color: rgba(255, 0, 0, 0.7);
+          }
+
+          &:after {
+            content: '';
+            transition: all 0.3s ease;
+            position: absolute;
+            bottom: rem(-10);
+            left: 0;
+            @include border-radius(rem(1));
+            height: rem(4.5);
+            background-color: red;
+            width: 0;
+          }
+
+          &:hover {
+            transition: all 0.3s ease;
+
+            &:after {
+              width: rem(100);
+            }
+          }
+
+        }
+      }
+    }
+  }
+
+  &__form {
+    position: relative;
+
+    &_warning_message {
+      transition: all .4s ease;
+      position: absolute;
+      overflow: hidden;
+      opacity: 0;
+      top: rem(20);
+      color: red;
+      font-family: $ff;
+      font-size: rem(18);
+      left: 0;
+      @media (max-width: em(768)) {
+        font-size: rem(16);
+      }
+
+    }
+
+    ._active {
+      overflow: visible;
+      opacity: 1;
+      transition: all .4s ease;
+      top: rem(-40);
+      @media (max-width: em(768)) {
+        top: rem(-30);
+      }
+
+    }
+  }
+
+  &__input {
+    width: 100%;
+    background-color: #333335;
+    border-radius: rem(20);
+    padding: rem(40);
+    box-sizing: border-box;
+    text-align: left;
+    color: #fff;
+    font-size: rem(24);
+    font-weight: 700;
+    transition: transform 0.3s ease;
+
+    &::placeholder {
+      color: #d7d7d7;
+    }
+
+    &:focus {
+      transform: scale(1.02);
+      transition: transform 0.3s ease;
+      @media (max-width: em(768)) {
+        transform: scale(1.03);
+      }
+    }
+
+    @media (max-width: em(768)) {
+      padding: rem(30);
+      font-size: rem(20);
+    }
+    @media (max-width: em(460)) {
+      font-size: rem(18);
+    }
+  }
+
+  &__button {
+    max-width: rem(300);
+    height: rem(70);
+    font-size: rem(20);
+    @media (max-width: em(768)) {
+      height: rem(55);
+      font-size: rem(18);
+      max-width: rem(200);
+    }
+    @media (max-width: em(460)) {
+      height: rem(50);
+      font-size: rem(16);
+      max-width: rem(180);
+    }
+  }
+}
+
+.signed {
+  gap: rem(0);
+}

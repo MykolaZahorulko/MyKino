@@ -1,0 +1,33 @@
+@import '../../../assets/styles/mixins';
+
+.selections {
+  padding-bottom: rem(80);
+  @include adaptiv-value(padding-top, 25, 35, 1);
+  @media (max-width: em(768)) {
+    padding-bottom: rem(60);
+  }
+
+  &__items {
+    display: block;
+  }
+
+  &__item {
+    display: block;
+  }
+
+  &__title {
+    padding: rem(0) rem(40);
+    font-family: $ff;
+    font-weight: 600;
+    color: white;
+    line-height: 1;
+    @include adaptiv-value(font-size, 78, 38, 1);
+    @include adaptiv-value(padding-top, 55, 25, 1);
+    @include adaptiv-value(padding-bottom, 55, 25, 1);
+    @media (max-width: em(768)) {
+      padding: rem(0) rem(20);
+      @include adaptiv-value(padding-top, 55, 25, 1);
+      @include adaptiv-value(padding-bottom, 55, 25, 1);
+    }
+  }
+}

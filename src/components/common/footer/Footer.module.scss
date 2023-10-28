@@ -1,0 +1,208 @@
+@import '../../../assets/styles/mixins.scss';
+
+.footer {
+  padding: rem(0) rem(40) rem(20) rem(40);
+  @media (max-width: em(768)) {
+    padding: rem(0) rem(20) rem(14) rem(20);
+  }
+
+  &__navigation {
+    @include adaptiv-value(padding-top, 30, 20, 1);
+    @include adaptiv-value(padding-bottom, 30, 20, 1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+    @media (max-width: em(550)) {
+      flex-direction: column;
+      align-items: start;
+      gap: rem(20);
+    }
+
+  }
+
+  &__left_content {
+    display: flex;
+    gap: rem(20);
+    align-items: center;
+    margin-right: rem(15);
+    @media (max-width: em(550)) {
+      flex-direction: column;
+      align-items: start;
+      margin: rem(0);
+    }
+  }
+
+  &__logo {
+    width: rem(120);
+    height: rem(30);
+    @media (max-width: em(992)) {
+      width: rem(100);
+      height: rem(25);
+    }
+    @media (max-width: em(425)) {
+      width: rem(100);
+      height: rem(25);
+    }
+  }
+
+  &__button {
+    height: rem(50);
+    @media (max-width: em(992)) {
+      height: rem(42);
+    }
+
+    &_telegram_icon {
+      min-height: rem(20);
+      min-width: rem(20);
+      display: inline-block;
+      margin-right: rem(10);
+      @media (max-width: em(425)) {
+        height: rem(14);
+        width: rem(14);
+      }
+    }
+
+    &_text {
+      @media (max-width: em(992)) {
+        display: none;
+      }
+      @media (max-width: em(550)) {
+        display: block;
+      }
+
+
+    }
+
+  }
+
+  &__center_content {
+    margin-right: rem(15);
+    @include flexbox();
+    align-items: center;
+    @include adaptiv-value(gap, 60, 20, 1);
+    @media (max-width: em(550)) {
+      flex-direction: column;
+      align-items: start;
+      gap: rem(20);
+    }
+
+    &_item {
+      @include flexbox();
+      align-items: center;
+      gap: rem(12);
+
+
+      &:hover {
+        .footer__center_content_text {
+          color: #fff;
+
+          &:after {
+            width: 35%;
+          }
+        }
+      }
+    }
+
+    &_icon {
+      height: rem(30);
+      width: rem(30);
+      color: #fff;
+      display: inline-block;
+      @media (max-width: em(992)) {
+        height: rem(24);
+        width: rem(24);
+      }
+    }
+
+    &_text {
+      transition: all 0.3s ease;
+      color: #ccc;
+      font-weight: 700;
+      font-size: rem(24);
+      position: relative;
+      @media (max-width: em(992)) {
+        font-size: rem(20);
+      }
+
+      &:after {
+        transition: all 0.3s ease;
+        position: absolute;
+        bottom: rem(-5);
+        left: 0;
+        content: '';
+        @include border-radius(rem(1));
+        height: rem(3.5);
+        background-color: red;
+        width: 0;
+      }
+    }
+  }
+
+  &__login {
+    &_content {
+      cursor: pointer;
+      @include flexbox();
+      align-items: center;
+      gap: rem(12);
+
+      &:hover {
+        .footer__login_content_text {
+          color: #fff;
+        }
+      }
+
+      &_icon {
+        color: #fff;
+        height: rem(30);
+        width: rem(30);
+        @media (max-width: em(992)) {
+          height: rem(24);
+          width: rem(24);
+        }
+      }
+
+      &_text {
+        transition: color 0.3s ease;
+        font-weight: 700;
+        font-size: rem(24);
+        color: #ccc;
+        @media (max-width: em(992)) {
+          font-size: rem(20);
+        }
+
+      }
+
+    }
+
+  }
+
+  &__information {
+    @include adaptiv-value(padding-top, 20, 10, 1);
+    font-family: $ff;
+    @include adaptiv-value(font-size, 22, 16, 1);
+    color: #fff;
+    @include flexbox();
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: em(768)) {
+      justify-content: start;
+      align-items: start;
+      flex-direction: column;
+      @include adaptiv-value(gap, 13, 5, 1);
+    }
+
+    &_contacts {
+      display: block;
+
+      span {
+        color: red;
+      }
+    }
+
+    &_rights {
+      display: block;
+    }
+  }
+}
